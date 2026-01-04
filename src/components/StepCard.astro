@@ -30,13 +30,13 @@ const altText = icon ? (altTextMap[icon] || title) : title;
 <div class="relative flex gap-6 md:gap-8">
   <!-- Left Column: Icon + Vertical Line -->
   <div class="flex flex-col items-center flex-shrink-0">
-    <!-- Icon Container -->
-    <div class="w-12 h-12 md:w-14 md:h-14 rounded-lg bg-accent flex items-center justify-center shadow-md relative z-10">
+    <!-- Icon Container - aligned with h3 title -->
+    <div class="w-12 h-12 md:w-14 md:h-14 rounded-lg bg-gradient-to-br from-accent to-accent/90 flex items-center justify-center shadow-md relative z-10 mt-1 md:mt-1.5">
       {icon ? (
         <img
           src={icon}
           alt={altText}
-          class="w-8 h-8 md:w-9 md:h-9 object-contain"
+          class="w-8 h-8 md:w-9 md:h-9 object-contain brightness-0 invert"
           width="36"
           height="36"
         />
@@ -48,7 +48,7 @@ const altText = icon ? (altTextMap[icon] || title) : title;
     <!-- Vertical Connecting Line (not shown for last step) -->
     {!isLast && (
       <div
-        class="w-0.5 flex-1 bg-gradient-to-b from-accent/30 to-accent/10 mt-2"
+        class="w-px flex-1 bg-accent/50"
         style="min-height: 60px;"
         aria-hidden="true"
       />
@@ -56,7 +56,7 @@ const altText = icon ? (altTextMap[icon] || title) : title;
   </div>
 
   <!-- Right Column: Content -->
-  <div class="flex-1 pb-8 md:pb-12">
+  <div class="flex-1 pb-10 md:pb-14">
     <h3 class="text-xl md:text-2xl font-semibold text-primary mb-2 md:mb-3">
       {title}
     </h3>
