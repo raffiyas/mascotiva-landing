@@ -1,0 +1,17 @@
+---
+/**
+ * Container component - max-width wrapper with responsive padding
+ * Provides consistent horizontal spacing across all sections
+ */
+
+export interface Props {
+  class?: string;
+  as?: 'div' | 'section' | 'header' | 'footer' | 'nav';
+}
+
+const { class: className = '', as: Tag = 'div' } = Astro.props;
+---
+
+<Tag class={`w-full max-w-container mx-auto container-padding ${className}`}>
+  <slot />
+</Tag>

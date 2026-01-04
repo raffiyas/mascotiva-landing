@@ -1,0 +1,29 @@
+---
+import { siteConfig } from '@data/siteConfig';
+import Container from './Container.astro';
+import TrustItem from './TrustItem.astro';
+
+const { trust } = siteConfig;
+---
+
+<section class="section-padding bg-gradient-to-b from-ui-light/30 to-white">
+  <Container>
+    <!-- Section Header -->
+    <div class="text-center mb-48 md:mb-64">
+      <h2 class="text-balance">
+        {trust.sectionTitle}
+      </h2>
+    </div>
+
+    <!-- Trust Items -->
+    <div class="grid md:grid-cols-3 gap-40 md:gap-48">
+      {trust.items.map((item) => (
+        <TrustItem
+          icon={item.icon}
+          title={item.title}
+          description={item.description}
+        />
+      ))}
+    </div>
+  </Container>
+</section>
