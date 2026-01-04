@@ -25,7 +25,8 @@ const { number, title, description, icon, isLast = false, index = 0 } = Astro.pr
     <!-- Left Column: Icon + Vertical Line -->
     <div class="flex flex-col items-center flex-shrink-0">
       <!-- Icon Container - aligned with h3 title -->
-      <div class="w-12 h-12 md:w-14 md:h-14 rounded-lg bg-gradient-to-br from-accent to-accent/90 flex items-center justify-center shadow-md relative z-10 mt-1 md:mt-1.5">
+      <!-- Step 2 (index 1) is emphasized with 8% larger scale -->
+      <div class={`w-12 h-12 md:w-14 md:h-14 rounded-lg bg-gradient-to-br from-accent to-accent/90 flex items-center justify-center shadow-md relative z-10 mt-1 md:mt-1.5 icon-container ${index === 1 ? 'scale-[1.08]' : ''}`}>
         {icon === 'demo' ? (
           <!-- Demo icon: Laptop/Monitor -->
           <svg
@@ -108,16 +109,38 @@ const { number, title, description, icon, isLast = false, index = 0 } = Astro.pr
 </div>
 
 <style>
-  /* Scroll reveal animation */
+  /* Scroll reveal animation - adjusted to 200ms for snappier feel */
   .reveal {
     opacity: 0;
     transform: translateY(8px);
-    transition: opacity 0.45s ease, transform 0.45s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease;
   }
 
   .reveal.is-visible {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  /* Subtle hover effect on desktop only - non-interactive appearance */
+  @media (min-width: 768px) {
+    .icon-container {
+      cursor: default; /* Ensure it doesn't look clickable */
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .icon-container:hover {
+      transform: translateY(-1px) scale(var(--icon-scale, 1)); /* Preserve step 2 scale */
+      box-shadow: 0 6px 12px -2px rgba(0, 0, 0, 0.15), 0 3px 7px -3px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Step 2 (emphasized) needs special hover handling to preserve scale */
+    .icon-container.scale-\[1\.08\] {
+      --icon-scale: 1.08;
+    }
+
+    .icon-container.scale-\[1\.08\]:hover {
+      transform: translateY(-1px) scale(1.08);
+    }
   }
 
   /* Respect user's motion preferences */
@@ -126,6 +149,15 @@ const { number, title, description, icon, isLast = false, index = 0 } = Astro.pr
       opacity: 1;
       transform: none;
       transition: none;
+    }
+
+    .icon-container {
+      transition: none;
+    }
+
+    .icon-container:hover {
+      transform: none;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     }
   }
 </style>
