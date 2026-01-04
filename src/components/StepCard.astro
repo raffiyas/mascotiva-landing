@@ -38,7 +38,7 @@ const altText = icon ? (altTextMap[icon] || title) : title;
           <img
             src={icon}
             alt={altText}
-            class="w-8 h-8 md:w-9 md:h-9 object-contain brightness-0 invert"
+            class="w-8 h-8 md:w-9 md:h-9 object-contain"
             width="36"
             height="36"
           />
@@ -50,8 +50,8 @@ const altText = icon ? (altTextMap[icon] || title) : title;
       <!-- Vertical Connecting Line (not shown for last step) -->
       {!isLast && (
         <div
-          class="w-px flex-1 bg-accent/50"
-          style="min-height: 60px;"
+          class="w-px bg-accent/50"
+          style="height: calc(100% - 3.5rem); margin-top: 0.75rem;"
           aria-hidden="true"
         />
       )}
