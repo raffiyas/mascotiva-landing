@@ -38,7 +38,7 @@ const altText = icon ? (altTextMap[icon] || title) : title;
           <img
             src={icon}
             alt={altText}
-            class="w-8 h-8 md:w-9 md:h-9 object-contain"
+            class="w-9 h-9 md:w-10 md:h-10 object-contain icon-white"
             width="36"
             height="36"
           />
@@ -70,6 +70,13 @@ const altText = icon ? (altTextMap[icon] || title) : title;
 </div>
 
 <style>
+  /* Icon visibility enhancement - make PNG icons white for better contrast */
+  .icon-white {
+    filter: brightness(0) invert(1);
+    /* Slightly enhance sharpness and add subtle drop shadow */
+    -webkit-filter: brightness(0) invert(1) drop-shadow(0 1px 1px rgba(0, 0, 0, 0.1));
+  }
+
   /* Scroll reveal animation */
   .reveal {
     opacity: 0;
