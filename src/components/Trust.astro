@@ -9,14 +9,14 @@ const { trust } = siteConfig;
 <section class="section-padding bg-gradient-to-b from-ui-light/30 to-white">
   <Container>
     <!-- Section Header -->
-    <div class="text-center mb-48 md:mb-64">
+    <div class="text-center mb-12 md:mb-16">
       <h2 class="text-balance">
         {trust.sectionTitle}
       </h2>
     </div>
 
     <!-- Trust Items -->
-    <div class="grid md:grid-cols-3 gap-40 md:gap-48">
+    <div class="grid md:grid-cols-3 gap-10 md:gap-12">
       {trust.items.map((item) => (
         <TrustItem
           icon={item.icon}

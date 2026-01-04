@@ -47,7 +47,7 @@
 
   /* Skip to content link for accessibility */
   .skip-to-content {
-    @apply absolute -top-full left-0 bg-primary text-white px-16 py-8 z-50;
+    @apply absolute -top-full left-0 bg-primary text-white px-4 py-2 z-50;
     @apply focus:top-0 transition-all duration-200;
   }
 
@@ -92,12 +92,12 @@
 @layer utilities {
   /* Container utility with padding */
   .container-padding {
-    @apply px-16 md:px-24 lg:px-32;
+    @apply px-4 md:px-6 lg:px-8;
   }
 
   /* Section spacing */
   .section-padding {
-    @apply py-48 md:py-64;
+    @apply py-12 md:py-16;
   }
 
   /* Text balance for headings */

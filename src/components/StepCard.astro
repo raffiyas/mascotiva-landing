@@ -23,15 +23,15 @@ const altTextMap: Record<string, string> = {
 const altText = icon ? (altTextMap[icon] || title) : title;
 ---
 
-<div class="relative flex flex-col md:flex-row items-start md:items-center gap-24">
+<div class="relative flex flex-col md:flex-row items-start md:items-center gap-6">
   <!-- Step Number & Icon -->
   <div class="flex-shrink-0 relative z-10">
-    <div class="w-80 h-80 rounded-xl bg-accent flex items-center justify-center shadow-card">
+    <div class="w-20 h-20 rounded-xl bg-accent flex items-center justify-center shadow-card">
       {icon ? (
         <img
           src={icon}
           alt={altText}
-          class="w-64 h-64 object-contain"
+          class="w-16 h-16 object-contain"
           width="64"
           height="64"
         />
@@ -43,12 +43,12 @@ const altText = icon ? (altTextMap[icon] || title) : title;
 
   <!-- Connecting Line (desktop only, not for last item) -->
   {!isLast && (
-    <div class="hidden md:block absolute top-40 left-80 w-full h-4 bg-gradient-to-r from-accent to-accent/20 -z-0" aria-hidden="true" />
+    <div class="hidden md:block absolute top-10 left-20 w-full h-1 bg-gradient-to-r from-accent to-accent/20 -z-0" aria-hidden="true" />
   )}
 
   <!-- Content -->
-  <div class="flex-1 md:pl-24">
-    <h3 class="text-2xl font-bold text-primary mb-12">
+  <div class="flex-1 md:pl-6">
+    <h3 class="text-2xl font-bold text-primary mb-3">
       {title}
     </h3>
     <p class="text-text-light leading-relaxed max-w-md">

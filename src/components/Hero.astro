@@ -8,12 +8,12 @@ const { hero } = siteConfig;
 
 <section class="section-padding bg-gradient-to-b from-ui-light/30 to-white">
   <Container>
-    <div class="grid lg:grid-cols-2 gap-48 lg:gap-64 items-center">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
       <!-- Left Column: Content -->
-      <div class="space-y-24 lg:space-y-32">
+      <div class="space-y-6 lg:space-y-8">
         <!-- Badge -->
         <div class="inline-flex">
-          <span class="inline-flex items-center px-16 py-8 rounded-full bg-accent/10 text-accent text-sm font-medium">
+          <span class="inline-flex items-center px-4 py-2 rounded-full bg-accent/10 text-accent text-sm font-medium">
             {hero.badge}
           </span>
         </div>
@@ -29,7 +29,7 @@ const { hero } = siteConfig;
         </p>
 
         <!-- CTAs -->
-        <div class="flex flex-col sm:flex-row gap-16">
+        <div class="flex flex-col sm:flex-row gap-4">
           <Button variant="primary" size="lg" href={hero.primaryCta.href}>
             {hero.primaryCta.label}
           </Button>
@@ -39,8 +39,8 @@ const { hero } = siteConfig;
         </div>
 
         <!-- Microcopy -->
-        <p class="text-sm text-ui-muted flex items-center gap-8">
-          <svg class="w-16 h-16 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+        <p class="text-sm text-ui-muted flex items-center gap-2">
+          <svg class="w-4 h-4 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
           </svg>
           {hero.microcopy}
@@ -61,8 +61,8 @@ const { hero } = siteConfig;
         </div>
 
         <!-- Decorative elements -->
-        <div class="absolute -top-16 -right-16 w-96 h-96 bg-accent/10 rounded-full blur-3xl -z-10" aria-hidden="true"></div>
-        <div class="absolute -bottom-16 -left-16 w-80 h-80 bg-primary/5 rounded-full blur-3xl -z-10" aria-hidden="true"></div>
+        <div class="absolute -top-4 -right-4 w-24 h-24 bg-accent/10 rounded-full blur-3xl -z-10" aria-hidden="true"></div>
+        <div class="absolute -bottom-4 -left-4 w-20 h-20 bg-primary/5 rounded-full blur-3xl -z-10" aria-hidden="true"></div>
       </div>
     </div>
   </Container>
