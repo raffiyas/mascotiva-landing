@@ -83,8 +83,11 @@
     @apply transition-all duration-200;
   }
 
-  /* Image optimization */
-  img {
+  /* Image optimization - exclude nav images to allow precise sizing */
+  main img,
+  footer img,
+  article img,
+  section img {
     @apply max-w-full h-auto;
   }
 }
