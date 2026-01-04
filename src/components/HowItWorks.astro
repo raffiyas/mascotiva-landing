@@ -27,6 +27,7 @@ const { howItWorks } = siteConfig;
           description={step.description}
           icon={step.icon}
           isLast={index === howItWorks.steps.length - 1}
+          index={index}
         />
       ))}
     </div>
