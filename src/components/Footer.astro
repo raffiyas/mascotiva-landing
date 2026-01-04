@@ -3,12 +3,12 @@ import { siteConfig } from '@data/siteConfig';
 import Container from './Container.astro';
 ---
 
-<footer id="contacto" class="bg-primary text-white pt-64 pb-32">
+<footer id="contacto" class="bg-primary text-white pt-16 pb-8">
   <Container>
-    <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-40 mb-48">
+    <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
       <!-- Brand Column -->
       <div class="lg:col-span-2">
-        <a href="/" class="inline-block mb-20" aria-label="Mascotiva - Inicio">
+        <a href="/" class="inline-block mb-5" aria-label="Mascotiva - Inicio">
           <img
             src="/logos/logo-white.png"
             alt="Mascotiva"
@@ -17,15 +17,15 @@ import Container from './Container.astro';
             height="32"
           />
         </a>
-        <p class="text-white/70 mb-20 max-w-sm">
+        <p class="text-white/70 mb-5 max-w-sm">
           Software veterinario diseñado para clínicas modernas en Latinoamérica.
         </p>
-        <div class="flex flex-col gap-12">
+        <div class="flex flex-col gap-3">
           <a
             href={`mailto:${siteConfig.email}`}
-            class="text-white/90 hover:text-accent transition-colors inline-flex items-center gap-8"
+            class="text-white/90 hover:text-accent transition-colors inline-flex items-center gap-2"
           >
-            <svg class="w-20 h-20 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
             {siteConfig.email}
@@ -36,19 +36,19 @@ import Container from './Container.astro';
       <!-- Navigation Columns -->
       {siteConfig.footer.columns.map((column) => (
         <div>
-          <h3 class="font-bold text-white mb-20">
+          <h3 class="font-bold text-white mb-5">
             {column.title}
           </h3>
-          <ul class="space-y-12">
+          <ul class="space-y-3">
             {column.links.map((link) => (
               <li>
                 <a
                   href={link.href}
-                  class="text-white/70 hover:text-accent transition-colors inline-flex items-center gap-8"
+                  class="text-white/70 hover:text-accent transition-colors inline-flex items-center gap-2"
                 >
                   {link.label}
                   {link.comingSoon && (
-                    <span class="text-xs bg-white/10 px-8 py-4 rounded">Próximamente</span>
+                    <span class="text-xs bg-white/10 px-2 py-1 rounded">Próximamente</span>
                   )}
                 </a>
               </li>
@@ -59,13 +59,13 @@ import Container from './Container.astro';
     </div>
 
     <!-- Bottom Bar -->
-    <div class="pt-32 border-t border-white/10">
-      <div class="flex flex-col md:flex-row justify-between items-center gap-16">
+    <div class="pt-8 border-t border-white/10">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
         <p class="text-white/60 text-sm">
           {siteConfig.footer.copyright}
         </p>
 
-        <div class="flex gap-24">
+        <div class="flex gap-6">
           <a
             href="/terminos"
             class="text-white/60 hover:text-accent text-sm transition-colors"

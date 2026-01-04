@@ -9,8 +9,8 @@ const { howItWorks } = siteConfig;
 <section id="como-funciona" class="section-padding bg-white">
   <Container>
     <!-- Section Header -->
-    <div class="text-center mb-48 md:mb-64">
-      <h2 class="text-balance mb-16">
+    <div class="text-center mb-12 md:mb-16">
+      <h2 class="text-balance mb-4">
         {howItWorks.sectionTitle}
       </h2>
       <p class="text-lg text-text-light max-w-2xl mx-auto">
@@ -19,7 +19,7 @@ const { howItWorks } = siteConfig;
     </div>
 
     <!-- Steps -->
-    <div class="space-y-48 md:space-y-64 max-w-4xl mx-auto">
+    <div class="space-y-12 md:space-y-16 max-w-4xl mx-auto">
       {howItWorks.steps.map((step, index) => (
         <StepCard
           number={step.number}

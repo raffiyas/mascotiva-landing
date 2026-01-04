@@ -11,7 +11,7 @@ import Button from './Button.astro';
       <a href="/" class="flex items-center" aria-label="Mascotiva - Inicio"><img src="/logos/logo.png" alt="Mascotiva" class="h-10 w-auto md:h-12 block" width="140" height="32" /></a>
 
       <!-- Desktop Navigation -->
-      <div class="hidden md:flex items-center space-x-32">
+      <div class="hidden md:flex items-center space-x-8">
         {siteConfig.navbar.links.map((link) => (
           <a
             href={link.href}
@@ -32,14 +32,14 @@ import Button from './Button.astro';
       <!-- Mobile Menu Button -->
       <button
         id="mobile-menu-button"
-        class="md:hidden p-8 -mr-8 text-text hover:text-accent transition-colors"
+        class="md:hidden p-2 -mr-2 text-text hover:text-accent transition-colors"
         aria-label="Abrir menú"
         aria-expanded="false"
         aria-controls="mobile-menu"
       >
         <svg
           id="menu-icon"
-          class="w-24 h-24"
+          class="w-6 h-6"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -53,7 +53,7 @@ import Button from './Button.astro';
         </svg>
         <svg
           id="close-icon"
-          class="w-24 h-24 hidden"
+          class="w-6 h-6 hidden"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -71,14 +71,14 @@ import Button from './Button.astro';
     <!-- Mobile Menu -->
     <div
       id="mobile-menu"
-      class="hidden md:hidden py-16 border-t border-ui-light"
+      class="hidden md:hidden py-4 border-t border-ui-light"
       role="menu"
     >
-      <div class="flex flex-col space-y-16">
+      <div class="flex flex-col space-y-4">
         {siteConfig.navbar.links.map((link) => (
           <a
             href={link.href}
-            class="text-text hover:text-accent font-medium py-8 transition-colors"
+            class="text-text hover:text-accent font-medium py-2 transition-colors"
             role="menuitem"
           >
             {link.label}
