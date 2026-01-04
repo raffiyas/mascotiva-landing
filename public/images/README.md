@@ -11,9 +11,9 @@ Place all mockup images and icons in this directory:
 - `feature-vacunas.png` - Vaccination control mockup
 
 ## How It Works Section
-- `icon-demo.svg` - Demo/calendar icon
-- `icon-config.svg` - Configuration/settings icon
-- `icon-launch.svg` - Launch/rocket icon
+- `icon-demo.png` - Demo/calendar icon
+- `icon-config.png` - Configuration/settings icon
+- `icon-launch.png` - Launch/rocket icon
 
 All images should be optimized for web (compressed, appropriate dimensions).
-Recommended: PNG for screenshots, SVG for icons.
+Images are in PNG format.
