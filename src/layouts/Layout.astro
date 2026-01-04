@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from '@data/siteConfig';
+import Analytics from '@vercel/analytics/astro';
 import '@/styles/global.css';
 
 export interface Props {
@@ -70,6 +71,9 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteConfig.url}${o
 
     <!-- Theme Color -->
     <meta name="theme-color" content="#0E2A3B" />
+
+    <!-- Vercel Web Analytics -->
+    <Analytics />
   </head>
   <body>
     <!-- Skip to content link for accessibility -->
