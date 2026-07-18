@@ -1,28 +1,207 @@
 ---
-import Layout from '@layouts/Layout.astro';
-import Navbar from '@components/Navbar.astro';
-import Hero from '@components/Hero.astro';
-import SocialProof from '@components/SocialProof.astro';
-import Features from '@components/Features.astro';
-import Benefits from '@components/Benefits.astro';
-import HowItWorks from '@components/HowItWorks.astro';
-import Trust from '@components/Trust.astro';
-import FinalCTA from '@components/FinalCTA.astro';
-import Footer from '@components/Footer.astro';
+import Layout from '../layouts/Layout.astro';
+
+const navItems = [
+  { label: 'Funciones', href: '#funciones' },
+  { label: 'Para tu clínica', href: '#para-tu-clinica' },
+  { label: 'Próximamente', href: '#proximamente' },
+];
+
+const agenda = [
+  ['09:00', 'Luna', 'Consulta'],
+  ['10:30', 'Rocky', 'Vacunación'],
+  ['11:30', 'Nala', 'Control'],
+  ['15:00', 'Thor', 'Consulta'],
+];
+
+const features = [
+  { icon: '▣', title: 'Agenda coordinada', text: 'Organiza consultas, controles y procedimientos con la información del paciente siempre a mano.', tone: 'lavender' },
+  { icon: '♡', title: 'Ficha clínica continua', text: 'Registra antecedentes, atenciones, diagnósticos y tratamientos sin perder la historia del paciente.', tone: 'coral' },
+  { icon: '▰', title: 'Caja conectada', text: 'Relaciona los cargos clínicos con la recepción y mantén visible el estado de cada venta.', tone: 'sage' },
+  { icon: '◇', title: 'Inventario actualizado', text: 'Controla productos, movimientos y stock para tomar decisiones con información más confiable.', tone: 'blue' },
+  { icon: '▤', title: 'Documentos clínicos', text: 'Prepara recetas y documentos con los datos institucionales, profesionales y del paciente.', tone: 'rose' },
+  { icon: '↗', title: 'Gestión que da perspectiva', text: 'Reúne la actividad de la clínica para entender mejor el trabajo diario y acompañar su crecimiento.', tone: 'sand' },
+];
+
+const dailyRoles = [
+  { label: 'Recepción', title: 'Todo empieza con contexto', text: 'Agenda, tutor, paciente y cobros se encuentran dentro del mismo recorrido.', accent: '01' },
+  { label: 'Consulta', title: 'La historia acompaña la atención', text: 'El equipo clínico puede continuar desde los antecedentes, sin reconstruir información dispersa.', accent: '02' },
+  { label: 'Gestión', title: 'La operación se vuelve visible', text: 'Caja e inventario se conectan con lo que realmente ocurre durante la jornada.', accent: '03' },
+];
+
+const roadmap = [
+  { icon: '⌂', title: 'Portal para tutores', text: 'Un espacio pensado para que cada familia consulte la información importante de sus mascotas.' },
+  { icon: '◷', title: 'Recordatorios preventivos', text: 'Seguimiento de vacunas, controles y próximos cuidados con una comunicación más oportuna.' },
+  { icon: '✦', title: 'Planes de salud', text: 'Herramientas para crear y acompañar programas preventivos adaptados a cada etapa de vida.' },
+];
 ---
 
 <Layout>
-  <Navbar />
+  <main id="inicio">
+    <header class="site-header">
+      <a class="brand" href="#inicio" aria-label="Mascotiva, inicio">
+        <span class="brand-mark" aria-hidden="true">
+          <i class="toe toe-one"></i><i class="toe toe-two"></i><i class="toe toe-three"></i><i class="toe toe-four"></i><i class="heart-pad">♥</i>
+        </span>
+        <span>Mascotiva</span>
+      </a>
+      <nav aria-label="Navegación principal">
+        {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+      </nav>
+      <a class="login-link" href="https://app.mascotiva.cl">
+        <span>Iniciar sesión</span><span class="login-icon" aria-hidden="true">♙</span>
+      </a>
+    </header>
 
-  <main id="main-content">
-    <Hero />
-    <SocialProof />
-    <Features />
-    <Benefits />
-    <HowItWorks />
-    <Trust />
-    <FinalCTA />
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span aria-hidden="true">✤</span> El cuidado veterinario, mejor organizado</p>
+        <h1 id="hero-title">Toda tu clínica,<br />en un solo lugar.</h1>
+        <p class="hero-description">Mascotiva reúne fichas clínicas, agenda, caja, inventario y documentos para que tu equipo trabaje con más orden y cada paciente reciba continuidad.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#para-tu-clinica">Conoce Mascotiva <span aria-hidden="true">›</span></a>
+          <a class="button button-secondary" href="#funciones">Ver funciones <span aria-hidden="true">›</span></a>
+        </div>
+        <ul class="trust-list" aria-label="Principios de Mascotiva">
+          <li><span class="trust-icon shield" aria-hidden="true">✓</span><span>Seguro<br />por clínica</span></li>
+          <li><span class="trust-icon coral" aria-hidden="true">♡</span><span>Pensado para<br />veterinaria</span></li>
+          <li><span class="trust-icon sage" aria-hidden="true">↗</span><span>Crece contigo</span></li>
+        </ul>
+      </div>
+
+      <div class="hero-visual">
+        <div class="lavender-blob" aria-hidden="true"></div>
+        <div class="botanical botanical-one" aria-hidden="true">❧</div>
+        <div class="botanical botanical-two" aria-hidden="true">❧</div>
+        <div class="product-card" aria-label="Vista ilustrativa del panel de Mascotiva">
+          <div class="product-topbar">
+            <a class="brand" href="#inicio" aria-label="Mascotiva, inicio">
+              <span class="brand-mark" aria-hidden="true"><i class="toe toe-one"></i><i class="toe toe-two"></i><i class="toe toe-three"></i><i class="toe toe-four"></i><i class="heart-pad">♥</i></span>
+              <span>Mascotiva</span>
+            </a>
+            <div class="product-user"><span class="notification" aria-hidden="true">♢</span><span class="avatar">MV</span><span aria-hidden="true">⌄</span></div>
+          </div>
+          <div class="product-shell">
+            <aside class="product-sidebar" aria-hidden="true">
+              <span class="side-item active">⌂</span><span class="side-item">□</span><span class="side-item">▱</span><span class="side-item">◇</span><span class="side-item">▤</span><span class="side-item">▥</span><span class="side-item side-bottom">⚙</span>
+            </aside>
+            <div class="product-grid">
+              <article class="dash-card agenda-card">
+                <h2><span class="dash-icon">▣</span> Agenda</h2><p class="dash-date">Martes, 27 de mayo</p>
+                <div class="appointments">
+                  {agenda.map(([time, pet, type], index) => (
+                    <div class="appointment"><span>{time}</span><i class={`appointment-dot dot-${index + 1}`}></i><strong>{pet}</strong><small>{type}</small></div>
+                  ))}
+                </div>
+                <a href="#funciones" tabindex="-1">Ver agenda <span>›</span></a>
+              </article>
+              <article class="dash-card patient-card">
+                <h2><span class="dash-icon">●</span> Paciente</h2>
+                <div class="patient"><span class="pet-avatar" aria-hidden="true">🐶</span><div><strong>Luna</strong><small>Golden Retriever<br />3 años</small></div></div>
+                <a href="#funciones" tabindex="-1">Ver ficha clínica <span>›</span></a>
+              </article>
+              <article class="dash-card cash-card">
+                <h2><span class="dash-icon">▰</span> Caja</h2>
+                <div class="cash-row"><div><small>Hoy</small><strong>$ 1.285.000</strong><small>4 cobros realizados</small></div><span class="mini-chart" aria-hidden="true">⌁</span></div>
+                <a href="#funciones" tabindex="-1">Ver caja <span>›</span></a>
+              </article>
+              <article class="dash-card inventory-card">
+                <h2><span class="dash-icon">◇</span> Inventario</h2><strong>56 productos</strong><small>Stock actualizado</small><div class="stock"><i></i></div>
+                <a href="#funciones" tabindex="-1">Ver inventario <span>›</span></a>
+              </article>
+              <article class="dash-card documents-card">
+                <h2><span class="dash-icon">▤</span> Documentos recientes</h2>
+                <div class="document-row"><span>Consentimiento anestesia · Luna</span><em>Firmado</em></div>
+                <div class="document-row"><span>Orden laboratorio · Rocky</span><em>Procesado</em></div>
+                <a href="#funciones" tabindex="-1">Ver documentos <span>›</span></a>
+              </article>
+            </div>
+          </div>
+        </div>
+        <img class="hero-pets" src="/hero-pets.png" alt="Un perro y un gato acompañan la plataforma Mascotiva" width="1021" height="913" loading="eager" fetchpriority="high" />
+        <span class="doodle-heart" aria-hidden="true">♡</span><span class="doodle-paw" aria-hidden="true">✤</span>
+      </div>
+    </section>
+
+    <section class="section functions-section" id="funciones" aria-labelledby="functions-title">
+      <div class="section-heading centered-heading">
+        <p class="section-kicker"><span aria-hidden="true">✤</span> Un sistema, un mismo recorrido</p>
+        <h2 id="functions-title">Menos información dispersa.<br /><em>Más continuidad.</em></h2>
+        <p>Cada herramienta de Mascotiva se conecta con la siguiente para que el equipo pueda concentrarse en atender, comunicar y cuidar mejor.</p>
+      </div>
+      <div class="feature-grid">
+        {features.map((feature) => (
+          <article class="feature-card">
+            <span class={`feature-icon ${feature.tone}`} aria-hidden="true">{feature.icon}</span><h3>{feature.title}</h3><p>{feature.text}</p>
+            <a href="#para-tu-clinica" aria-label={`Conocer más sobre ${feature.title}`}>Conocer más <span aria-hidden="true">›</span></a>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="clinic-section" id="para-tu-clinica" aria-labelledby="clinic-title">
+      <div class="clinic-inner">
+        <div class="clinic-copy section-heading">
+          <p class="section-kicker"><span aria-hidden="true">♡</span> Para tu clínica</p>
+          <h2 id="clinic-title">Diseñado desde la forma en que <em>realmente se atiende.</em></h2>
+          <p>Mascotiva acompaña el trayecto completo: desde que una familia agenda hasta que la atención queda registrada y la recepción puede cerrar el proceso.</p>
+          <ul class="clinic-points">
+            <li><span aria-hidden="true">✓</span><div><strong>Información con propósito</strong><small>Cada dato aparece donde el equipo lo necesita.</small></div></li>
+            <li><span aria-hidden="true">✓</span><div><strong>Responsabilidades más claras</strong><small>Clínica y recepción comparten el mismo estado del proceso.</small></div></li>
+            <li><span aria-hidden="true">✓</span><div><strong>Seguridad por clínica</strong><small>El acceso respeta el contexto de trabajo de cada organización.</small></div></li>
+          </ul>
+        </div>
+        <div class="flow-visual" aria-label="Flujo de atención conectado en Mascotiva">
+          <div class="flow-orbit orbit-one" aria-hidden="true"></div><div class="flow-orbit orbit-two" aria-hidden="true"></div>
+          <article class="flow-card flow-patient">
+            <div class="flow-card-top"><span class="flow-avatar">L</span><span><small>Paciente</small><strong>Luna</strong></span><em>Activa</em></div>
+            <div class="flow-details"><span>Tutora<br /><strong>Camila R.</strong></span><span>Especie<br /><strong>Canina</strong></span><span>Próximo control<br /><strong>12 ago</strong></span></div>
+          </article>
+          <article class="flow-card flow-care"><span class="flow-mini-icon coral">♡</span><div><small>Atención registrada</small><strong>Control preventivo</strong><p>Antecedentes y próximas indicaciones actualizadas.</p></div><span class="flow-check">✓</span></article>
+          <article class="flow-card flow-sale"><div><small>Cuenta asociada</small><strong>$ 42.000</strong><span>Lista para recepción</span></div><div class="sale-status"><i></i> Pendiente de pago</div></article>
+          <span class="flow-line line-one" aria-hidden="true"></span><span class="flow-line line-two" aria-hidden="true"></span><span class="floating-note note-one" aria-hidden="true">Ficha conectada</span><span class="floating-note note-two" aria-hidden="true">Sin duplicar datos</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section daily-section" aria-labelledby="daily-title">
+      <div class="section-heading daily-heading">
+        <div><p class="section-kicker"><span aria-hidden="true">✦</span> En el día a día</p><h2 id="daily-title">Una clínica más ordenada se siente <em>en cada rol.</em></h2></div>
+        <p>Mascotiva no busca cambiar la esencia de la atención veterinaria. Busca quitar fricción alrededor de ella.</p>
+      </div>
+      <div class="daily-grid">
+        {dailyRoles.map((role) => <article class="daily-card"><span class="daily-number">{role.accent}</span><p>{role.label}</p><h3>{role.title}</h3><small>{role.text}</small></article>)}
+      </div>
+    </section>
+
+    <section class="roadmap-section" id="proximamente" aria-labelledby="roadmap-title">
+      <div class="roadmap-inner">
+        <div class="section-heading centered-heading roadmap-heading">
+          <p class="section-kicker light"><span aria-hidden="true">✤</span> Próximamente</p>
+          <h2 id="roadmap-title">Mascotiva crece junto a la relación entre <em>clínica, paciente y familia.</em></h2>
+          <p>Estamos construyendo nuevas formas de mantener el cuidado conectado más allá de la consulta.</p>
+        </div>
+        <div class="roadmap-grid">
+          {roadmap.map((item) => <article class="roadmap-card"><div class="roadmap-card-top"><span aria-hidden="true">{item.icon}</span><em>En camino</em></div><h3>{item.title}</h3><p>{item.text}</p></article>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta" id="contacto" aria-labelledby="cta-title">
+      <span class="cta-paw paw-left" aria-hidden="true">✤</span><span class="cta-heart" aria-hidden="true">♡</span>
+      <div>
+        <p class="section-kicker"><span aria-hidden="true">♡</span> Cuidar mejor también es trabajar mejor</p>
+        <h2 id="cta-title">Tu clínica puede tener<br />todo en <em>un solo lugar.</em></h2>
+        <p>Conoce cómo Mascotiva puede acompañar el trabajo diario de tu equipo veterinario.</p>
+        <div class="hero-actions cta-actions"><a class="button button-primary" href="https://app.mascotiva.cl">Entrar a Mascotiva <span aria-hidden="true">›</span></a><a class="button button-secondary" href="#funciones">Volver a las funciones <span aria-hidden="true">↑</span></a></div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <a class="brand" href="#inicio" aria-label="Mascotiva, inicio"><span class="brand-mark" aria-hidden="true"><i class="toe toe-one"></i><i class="toe toe-two"></i><i class="toe toe-three"></i><i class="toe toe-four"></i><i class="heart-pad">♥</i></span><span>Mascotiva</span></a>
+      <p>Software veterinario para una atención más conectada.</p>
+      <nav aria-label="Navegación del pie de página"><a href="#funciones">Funciones</a><a href="#para-tu-clinica">Para tu clínica</a><a href="#proximamente">Próximamente</a></nav>
+      <small>© 2026 Mascotiva</small>
+    </footer>
   </main>
-
-  <Footer />
 </Layout>

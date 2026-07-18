@@ -1,86 +1,37 @@
 ---
-import { siteConfig } from '@data/siteConfig';
-import Analytics from '@vercel/analytics/astro';
-import '@/styles/global.css';
+import '../styles/global.css';
 
-export interface Props {
+interface Props {
   title?: string;
   description?: string;
-  ogImage?: string;
-  canonicalUrl?: string;
 }
 
 const {
-  title = siteConfig.seo.title,
-  description = siteConfig.seo.description,
-  ogImage = siteConfig.seo.ogImage,
-  canonicalUrl = siteConfig.url,
+  title = 'Mascotiva | Tu clínica veterinaria, mejor organizada',
+  description = 'Mascotiva reúne fichas clínicas, agenda, caja, inventario y documentos para que tu equipo veterinario trabaje con más orden.',
 } = Astro.props;
 
-const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteConfig.url}${ogImage}`;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
-<html lang="es-CL">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="generator" content={Astro.generator} />
-
-    <!-- Primary Meta Tags -->
-    <title>{title}</title>
-    <meta name="title" content={title} />
+    <meta name="theme-color" content="#fffaf3" />
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonicalUrl} />
-
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={fullOgImage} />
+    <meta property="og:url" content={canonicalURL} />
     <meta property="og:locale" content="es_CL" />
-    <meta property="og:site_name" content={siteConfig.name} />
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalUrl} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={fullOgImage} />
-
-    <!-- Favicon -->
-    <link rel="icon" href="/logos/favicon.ico" sizes="any" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-
-    <!-- Google Fonts - Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Preload hero image -->
-    <link
-      rel="preload"
-      as="image"
-      href={siteConfig.hero.image.src}
-      fetchpriority="high"
-    />
-
-    <!-- Theme Color -->
-    <meta name="theme-color" content="#0E2A3B" />
-
-    <!-- Vercel Web Analytics -->
-    <Analytics />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
+    <title>{title}</title>
   </head>
   <body>
-    <!-- Skip to content link for accessibility -->
-    <a href="#main-content" class="skip-to-content">
-      Saltar al contenido principal
-    </a>
-
     <slot />
   </body>
 </html>
